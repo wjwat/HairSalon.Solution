@@ -13,7 +13,7 @@
   @Html.TextBoxFor(model => model.Name)
 
   @Html.LabelFor(model => model.Stylist)
-  @Html.DropDownList("StylistId")
+  @Html.DropDownList("StylistId", ViewBag.StylistId, "", ViewBag.attr)
 
   <input type="submit" value="Add new item" class="btn btn-default" />
 }
