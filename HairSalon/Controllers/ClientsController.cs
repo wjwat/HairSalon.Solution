@@ -39,10 +39,18 @@ namespace HairSalon.Controllers
       {
         if (id != null)
         {
-          ViewBag.Selection = id;
-          ViewBag.DisableSelection = true;
+          var s = _db.Stylists.Where(s => s.StylistId == id).FirstOrDefault();
+          ViewBag.StylistId = new SelectList(
+              _db.Stylists,
+              "StylistId",
+              "Name",
+              _db.Stylists.Where(s => s.StylistId == id).FirstOrDefault()
+          );
         }
-        ViewBag.StylistId = new SelectList(_db.Stylists, "StylistId", "Name");
+        else
+        {
+          ViewBag.StylistId = new SelectList(_db.Stylists, "StylistId", "Name");
+        }
         return View();
       }
     }
