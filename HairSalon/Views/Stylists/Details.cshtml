@@ -6,8 +6,8 @@
 
 <fieldset>
   <legend class='stylist-name'>@Model.Name</legend>
+  @await Html.PartialAsync("Buttons/StylistAddClient")
 </fieldset>
 
 @await Html.PartialAsync("Buttons/StylistHome")
 @await Html.PartialAsync("Buttons/StylistAddStylist")
-@await Html.PartialAsync("Buttons/StylistAddClient")
