@@ -70,6 +70,11 @@ footer a {
   font-weight: bold;
 }
 
+.disabled {
+  border: 2px solid red;
+  background-color: red;
+}
+
 .order-name {
   font-style: italic;
 }
