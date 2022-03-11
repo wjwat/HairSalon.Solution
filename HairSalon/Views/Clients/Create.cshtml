@@ -12,8 +12,16 @@
   @Html.LabelFor(model => model.Name)
   @Html.TextBoxFor(model => model.Name)
 
-  @Html.LabelFor(model => model.Stylist)
-  @Html.DropDownList("StylistId")
+  @if (@ViewBag.DisableSelection != null)
+  {
+    @Html.LabelFor(model => model.Stylist)
+    @Html.DropDownList("StylistId")
+  }
+  else
+  {
+    @Html.LabelFor(model => model.Stylist)
+    @Html.DropDownList("StylistId")
+  }
 
   <input type="submit" value="Add new item" class="btn btn-default" />
 }
