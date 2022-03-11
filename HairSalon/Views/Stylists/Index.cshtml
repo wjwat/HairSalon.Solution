@@ -12,12 +12,12 @@
 }
 else
 {
+  <ul>
   @foreach (Stylist s in Model)
   {
-    <h4>@s.Name</h4>
+    <li>@Html.ActionLink($"{s.Name}", "Details", new {id = s.StylistId })</li>
   }
+  </ul>
 }
 
-<a href='@Url.Action("Create", "Stylists")'>
-  <button type='button'>create</button>
-</a>
+@await Html.PartialAsync("Buttons/StylistAddStylist")

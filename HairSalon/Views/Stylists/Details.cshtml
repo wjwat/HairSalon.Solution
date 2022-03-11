@@ -1,0 +1,12 @@
+@{
+  Layout = "_Base";
+}
+
+@model HairSalon.Models.Stylist
+
+<fieldset>
+  <legend class='stylist-name'>@Model.Name</legend>
+</fieldset>
+
+@await Html.PartialAsync("Buttons/StylistHome")
+@await Html.PartialAsync("Buttons/StylistAddClient")
