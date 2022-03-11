@@ -1,0 +1,18 @@
+@{
+  Layout = "_Base";
+}
+
+@model HairSalon.Models.Stylist
+
+<h2>Add Stylist</h2>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.StylistId)
+
+  @Html.LabelFor(model => model.Name)
+  @Html.TextBoxFor(model => model.Name, new { value = "@model.Name" })
+  <button value="Save">Edit stylist</button>
+}
+
+@await Html.PartialAsync("Buttons/StylistHome")

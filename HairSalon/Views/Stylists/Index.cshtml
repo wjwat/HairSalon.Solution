@@ -18,6 +18,8 @@ else
     <li>@Html.ActionLink($"{s.Name}", "Details", new {id = s.StylistId })</li>
   }
   </ul>
-}
 
+  @await Html.PartialAsync("Buttons/ClientAddClient")
+}
+<br />
 @await Html.PartialAsync("Buttons/StylistAddStylist")
