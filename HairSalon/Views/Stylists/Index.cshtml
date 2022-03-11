@@ -1,0 +1,23 @@
+@{
+  Layout = "_Base";
+}
+
+@using HairSalon.Models;
+
+<h1>Stylists</h1>
+
+@if (@Model.Count == 0)
+{
+  <h3>No Stylists have been added yet!</h3>
+}
+else
+{
+  @foreach (Stylist s in Model)
+  {
+    <h4>@s.Name</h4>
+  }
+}
+
+<a href='@Url.Action("Create", "Stylists")'>
+  <button type='button'>create</button>
+</a>
