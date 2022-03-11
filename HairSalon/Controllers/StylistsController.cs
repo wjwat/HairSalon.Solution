@@ -69,6 +69,12 @@ namespace HairSalon.Controllers
     public ActionResult DeleteConfirmed(int id)
     {
       var stylist = _db.Stylists.FirstOrDefault(s => s.StylistId == id);
+      var clients = _db.Clients.Where(c => c.StylistId == id).ToList();
+
+      clients.ForEach(c =>
+        c.StylistId = 0
+      );
+
       _db.Stylists.Remove(stylist);
       _db.SaveChanges();
       return RedirectToAction("Index");
