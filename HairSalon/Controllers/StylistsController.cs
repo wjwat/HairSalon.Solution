@@ -28,5 +28,27 @@ namespace HairSalon.Controllers
     {
       return View();
     }
+
+    [HttpPost]
+    public ActionResult Create(Stylist stylist)
+    {
+      // Should we be doing input validation here? And if not here then where?
+      _db.Stylists.Add(stylist);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
+
+    public ActionResult Details(int id)
+    {
+      // What happens if we don't find that stylist?
+      Stylist stylist = _db.Stylists.FirstOrDefault(s => s.StylistId == id);
+      return View(stylist);
+    }
+
+    public ActionResult Edit(int id)
+    {
+      Stylist stylist = _db.Stylists.FirstOrDefault(s => s.StylistId == id);
+      return View(stylist);
+    }
   }
 }
