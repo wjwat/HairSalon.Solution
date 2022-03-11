@@ -24,17 +24,24 @@ namespace HairSalon.Controllers
       return View();
     }
 
-    public ActionResult Create()
+    public ActionResult Create(int? id)
     {
       // If we have no stylists just dump back out to the create Stylist page,
       // but a more ideal solution would be to add an intermediate page that
       // says why we're back at the create a stylist page.
-      if (_db.Stylists.Count() == 0)
+      if (_db.Stylists.Count() == 0 ||
+          (_db.Stylists.All(s => s.StylistId != id) &&
+          id != null))
       {
         return RedirectToAction("Create", "Stylists");
       }
       else
       {
+        if (id != null)
+        {
+          ViewBag.Selection = id;
+          ViewBag.DisableSelection = true;
+        }
         ViewBag.StylistId = new SelectList(_db.Stylists, "StylistId", "Name");
         return View();
       }
