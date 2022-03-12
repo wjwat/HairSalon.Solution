@@ -1,0 +1,5 @@
+@model HairSalon.Models.Stylist
+@Html.LabelFor(model => model.FirstName)
+@Html.TextBoxFor(model => model.FirstName, new { value = "@model.FirstName" })
+@Html.LabelFor(model => model.LastName)
+@Html.TextBoxFor(model => model.LastName, new { value = "@model.LastName" })

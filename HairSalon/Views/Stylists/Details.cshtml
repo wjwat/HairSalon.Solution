@@ -1,11 +1,17 @@
 @{
   Layout = "_Base";
 }
-
+@using HairSalon.Models;
 @model HairSalon.Models.Stylist
 
 <fieldset>
   <legend class='stylist-name'>@Model.Name</legend>
+
+  @foreach (Client c in Model.Clients)
+  {
+    <h1>@c.Name</h1>
+  }
+
   @await Html.PartialAsync("Buttons/StylistAddClient")
 </fieldset>
 
