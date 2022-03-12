@@ -7,7 +7,6 @@ namespace HairSalon.Models
     public Stylist()
     {
       this.Clients = new HashSet<Client>();
-      this.Appointments = new HashSet<Appointment>();
     }
 
     // Is there a specific need to have this column named 'StylistId' instead of
@@ -24,6 +23,5 @@ namespace HairSalon.Models
     }
 
     public virtual ICollection<Client> Clients { get; set; }
-    public virtual ICollection<Appointment> Appointments { get; set; }
   }
 }
