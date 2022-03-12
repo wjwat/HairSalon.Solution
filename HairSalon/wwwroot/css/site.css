@@ -119,13 +119,18 @@ footer a {
 /*** Lil Guy ***/
 
 .lilguy:hover {
-  color: red;
+  color: #5353ED;
   font-weight: bold;
+  text-shadow: blue 1px 1px;
 }
 
 .lilguy:hover:after {
   color: white;
-  content: " <(DOWN WITH TDD!)";
+  content: " <(a database stepped on my foot...)";
+}
+.lilguy:hover:before {
+  color: white;
+  content: ".｡･ﾟﾟ･";
 }
 
 @keyframes rainbow_animation {
