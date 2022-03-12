@@ -13,7 +13,12 @@
   @Html.TextBoxFor(model => model.Name)
 
   @Html.LabelFor(model => model.Stylist)
-  @Html.DropDownList("StylistId", ViewBag.StylistId, "", ViewBag.attr)
+  @Html.DropDownList("StylistId", ViewBag.StylistId, null, ViewBag.Attr)
+  @if (ViewBag.Selected != 0)
+  {
+    // Jesus Christ why can't I do something like this with an HTML helper?
+    <input type="hidden" name="StylistId" value="@ViewBag.Selected.ToString()" />
+  }
 
-  <input type="submit" value="Add new item" class="btn btn-default" />
+  @await Html.PartialAsync("Buttons/ClientAddClient")
 }

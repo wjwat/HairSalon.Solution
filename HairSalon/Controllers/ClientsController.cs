@@ -41,7 +41,8 @@ namespace HairSalon.Controllers
         {
           var s = _db.Stylists.Where(s => s.StylistId == id).FirstOrDefault();
 
-          ViewBag.attr = new { disabled = "" };
+          ViewBag.Selected = s.StylistId;
+          ViewBag.Attr = new { disabled = "", @class = "disabled", required = "" };
           ViewBag.StylistId = new SelectList(
               _db.Stylists,
               "StylistId",
@@ -51,7 +52,8 @@ namespace HairSalon.Controllers
         }
         else
         {
-          ViewBag.attr = new {};
+          ViewBag.Selected = 0;
+          ViewBag.Attr = new {required = ""};
           ViewBag.StylistId = new SelectList(_db.Stylists, "StylistId", "Name");
         }
         return View();
