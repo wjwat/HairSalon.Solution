@@ -8,14 +8,30 @@ body > header h1 {
 
 button {
   text-transform: uppercase;
+  font-weight: bold;
+  /* float: right; */
+  margin-top: 0.75rem;
 }
 
 fieldset {
   padding-bottom: 1.5rem;
+  overflow: hidden;
+}
+
+form {
+  overflow: hidden;
 }
 
 legend {
   font-size: 24px;
+}
+
+table {
+  border: none;
+  border: 2px dotted #ddd;
+  border-left: 8px solid #001f3f;
+  /* width: auto; */
+  margin: 0 auto;
 }
 
 thead {
@@ -25,6 +41,10 @@ thead {
 th {
   background-color: #aaa;
   color: #001f3f;
+}
+
+td {
+  padding: 0.25rem 0.1rem;
 }
 
 td, th {
@@ -38,12 +58,6 @@ tbody tr td:first-child {
 tbody tr td:first-child {
   text-align: right;
   padding-right: 1rem;
-}
-
-table {
-  border: none;
-  border: 2px dotted #ddd;
-  border-left: 8px solid #001f3f;
 }
 
 tbody tr:nth-child(odd) {
@@ -91,6 +105,15 @@ footer a {
   text-transform: uppercase;
   text-decoration: underline;
   font-weight: bold;
+}
+
+/*** Errors ***/
+.input-validation-error {
+  border: 2px solid red;
+}
+
+.field-validation-error {
+  color: red;
 }
 
 /*** Lil Guy ***/
