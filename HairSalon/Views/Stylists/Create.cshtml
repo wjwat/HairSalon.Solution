@@ -7,11 +7,9 @@
 
 @using (Html.BeginForm())
 {
-  @Html.LabelFor(model => model.FirstName)
-  @Html.TextBoxFor(model => model.FirstName)
-  @Html.LabelFor(model => model.LastName)
-  @Html.TextBoxFor(model => model.LastName)
+  @await Html.PartialAsync("Forms/StylistForm")
   <button>Add new stylist</button>
 }
+
 
 @await Html.PartialAsync("Buttons/StylistHome")

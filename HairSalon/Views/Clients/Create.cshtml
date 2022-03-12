@@ -9,16 +9,6 @@
 
 @using (Html.BeginForm())
 {
-  @Html.LabelFor(model => model.Name)
-  @Html.TextBoxFor(model => model.Name)
-
-  @Html.LabelFor(model => model.Stylist)
-  @Html.DropDownList("StylistId", ViewBag.StylistId, null, ViewBag.Attr)
-  @if (ViewBag.Selected != 0)
-  {
-    // Jesus Christ why can't I do something like this with an HTML helper?
-    <input type="hidden" name="StylistId" value="@ViewBag.Selected.ToString()" />
-  }
-
-  <button>Add new stylist</button>
+  @await Html.PartialAsync("Forms/ClientForm")
+  <button>Add new client</button>
 }

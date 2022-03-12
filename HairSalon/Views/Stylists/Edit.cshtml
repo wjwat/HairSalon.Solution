@@ -9,11 +9,7 @@
 @using (Html.BeginForm())
 {
   @Html.HiddenFor(model => model.StylistId)
-
-  @Html.LabelFor(model => model.FirstName)
-  @Html.TextBoxFor(model => model.FirstName, new { value = "@model.FirstName" })
-  @Html.LabelFor(model => model.LastName)
-  @Html.TextBoxFor(model => model.LastName, new { value = "@model.LastName" })
+  @await Html.PartialAsync("Forms/StylistForm")
   <button value="Save">Edit stylist</button>
 }
 
