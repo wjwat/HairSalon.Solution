@@ -5,15 +5,15 @@
 @model HairSalon.Models.Stylist
 
 <fieldset>
-  <legend class='stylist-name'>@Model.Name</legend>
+  <legend>@Model.Name</legend>
 
-  @foreach (Client c in Model.Clients)
+  @await Html.PartialAsync("Tables/StylistDetails")
+
+  @if (ViewBag.clients.Count != 0)
   {
-    <h1>@c.Name</h1>
+    @await Html.PartialAsync("Tables/Clients", (List<HairSalon.Models.Client>)ViewBag.clients)
   }
 
   @await Html.PartialAsync("Buttons/StylistAddClient")
+  @await Html.PartialAsync("Buttons/StylistDeleteStylist")
 </fieldset>
-
-@await Html.PartialAsync("Buttons/StylistHome")
-@await Html.PartialAsync("Buttons/StylistAddStylist")

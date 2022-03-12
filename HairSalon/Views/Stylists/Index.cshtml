@@ -1,7 +1,6 @@
 @{
   Layout = "_Base";
 }
-
 @using HairSalon.Models;
 
 <h1>Stylists</h1>
@@ -12,14 +11,9 @@
 }
 else
 {
-  <ul>
-  @foreach (Stylist s in Model)
-  {
-    <li>@Html.ActionLink($"{s.Name}", "Details", new {id = s.StylistId })</li>
-  }
-  </ul>
+  @await Html.PartialAsync("Tables/Stylists")
 
   @await Html.PartialAsync("Buttons/ClientAddClient")
 }
-<br />
+
 @await Html.PartialAsync("Buttons/StylistAddStylist")

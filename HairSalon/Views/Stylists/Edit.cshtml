@@ -4,7 +4,7 @@
 
 @model HairSalon.Models.Stylist
 
-<h2>Add Stylist</h2>
+<h2>Edit Stylist</h2>
 
 @using (Html.BeginForm())
 {
@@ -12,5 +12,3 @@
   @await Html.PartialAsync("Forms/StylistForm")
   <button value="Save">Edit stylist</button>
 }
-
-@await Html.PartialAsync("Buttons/StylistHome")

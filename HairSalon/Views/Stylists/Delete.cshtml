@@ -8,7 +8,13 @@
 
 @using (Html.BeginForm())
 {
-  <h1>@Html.DisplayFor(model => model.Name)</h1>
+  @await Html.PartialAsync("Tables/StylistDetails")
+
+  @if (Model.Clients.Count != 0)
+  {
+    @await Html.PartialAsync("Tables/Clients", (List<HairSalon.Models.Client>)Model.Clients.ToList())
+    <h3>You will have to find Stylists for these clients after you delete <span class='delete-name'>@Model.Name</span></h3>
+  }
+  @await Html.PartialAsync("Buttons/Cancel")
   @await Html.PartialAsync("Buttons/Delete")
 }
-@await Html.PartialAsync("Buttons/StylistHome")
