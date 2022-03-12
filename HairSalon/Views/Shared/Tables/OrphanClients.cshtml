@@ -1,0 +1,22 @@
+@using HairSalon.Models;
+@model List<HairSalon.Models.Client>;
+<hr />
+<table>
+  <thead>
+    <tr>
+      <th style='width: 10%'>Client ID</th>
+      <th>Clients With No Stylists</th>
+      <th style='width: 15%'></th>
+    </tr>
+  </thead>
+  <tbody>
+@foreach (Client c in Model)
+{
+  <tr>
+    <td>@c.ClientId</td>
+    <td>@c.Name</td>
+    <td>@Html.ActionLink("Edit", "Edit", "Clients", new { id = c.ClientId }) | @Html.ActionLink("Delete", "Delete", "Clients", new { id = c.ClientId})</td>
+  </tr>
+}
+  </tbody>
+</table>
