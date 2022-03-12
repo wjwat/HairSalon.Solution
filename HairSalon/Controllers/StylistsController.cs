@@ -40,14 +40,28 @@ namespace HairSalon.Controllers
 
     public ActionResult Details(int id)
     {
-      // What happens if we don't find that stylist?
       Stylist stylist = _db.Stylists.FirstOrDefault(s => s.StylistId == id);
-      return View(stylist);
+
+      if (stylist != null)
+      {
+        ViewBag.clients = _db.Clients.Where(c => c.StylistId == id).ToList();
+        return View(stylist);
+      }
+      else
+      {
+        return RedirectToAction("Index");
+      }
     }
 
     public ActionResult Edit(int id)
     {
       Stylist stylist = _db.Stylists.FirstOrDefault(s => s.StylistId == id);
+
+      if (stylist == null)
+      {
+        RedirectToAction("Index");
+      }
+
       return View(stylist);
     }
 
@@ -61,6 +75,11 @@ namespace HairSalon.Controllers
 
     public ActionResult Delete(int id)
     {
+      if (id == 0)
+      {
+        RedirectToAction("Index");
+      }
+
       var stylist = _db.Stylists.FirstOrDefault(s => s.StylistId == id);
       return View(stylist);
     }

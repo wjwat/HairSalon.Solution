@@ -20,8 +20,8 @@ namespace HairSalon.Controllers
 
     public ActionResult Index()
     {
-      // Display list of current clients
-      return View();
+      List<Client> model = _db.Clients.ToList();
+      return View(model);
     }
 
     public ActionResult Create(int? id)
@@ -52,7 +52,7 @@ namespace HairSalon.Controllers
         }
         else
         {
-          ViewBag.Selected = 0;
+          ViewBag.Selected = null;
           ViewBag.Attr = new {required = ""};
           ViewBag.StylistId = new SelectList(_db.Stylists, "StylistId", "Name");
         }
@@ -68,9 +68,31 @@ namespace HairSalon.Controllers
       return RedirectToAction("Index");
     }
 
+    public ActionResult Details(int id)
+    {
+      Client client = _db.Clients.FirstOrDefault(s => s.ClientId == id);
+
+      if (client == null)
+      {
+        return RedirectToAction("Index");
+      }
+
+      ViewBag.StylistName = (client.StylistId == 0) ?
+          "Unknown" :
+          _db.Stylists.FirstOrDefault(s => s.StylistId == client.StylistId).Name;
+      return View(client);
+    }
+
     public ActionResult Edit(int id)
     {
       Client client = _db.Clients.FirstOrDefault(s => s.ClientId == id);
+
+      if (client == null || !_db.Stylists.Any())
+      {
+        return RedirectToAction("Index");
+      }
+
+      ViewBag.StylistId = new SelectList(_db.Stylists, "StylistId", "Name");
       return View(client);
     }
 
@@ -84,6 +106,11 @@ namespace HairSalon.Controllers
 
     public ActionResult Delete(int id)
     {
+      if (id == 0)
+      {
+        return RedirectToAction("Index");
+      }
+
       var client = _db.Clients.FirstOrDefault(s => s.ClientId == id);
       return View(client);
     }

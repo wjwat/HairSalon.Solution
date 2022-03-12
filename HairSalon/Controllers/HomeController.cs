@@ -22,6 +22,7 @@ namespace HairSalon.Controllers
       public ActionResult Index()
       {
         var clients = _db.Clients.Where(c => c.StylistId == 0).ToList();
+        ViewBag.stylists = _db.Stylists.ToList();
         return View(clients);
       }
 
