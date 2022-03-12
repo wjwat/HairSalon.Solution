@@ -1,4 +1,7 @@
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace HairSalon.Models
 {
@@ -6,7 +9,11 @@ namespace HairSalon.Models
   {
     public int ClientId { get; set; }
     public int StylistId { get; set; }
+
+    [Required, StringLength(60, MinimumLength = 1)]
     public string FirstName { get; set; }
+    [StringLength(60, MinimumLength = 1)]
+    [Required]
     public string LastName { get; set; }
     public string Name
     {
