@@ -1,6 +1,11 @@
 @{
   Layout = "_Base";
 }
+@section Scripts {
+  @{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+  }
+}
 
 @model HairSalon.Models.Stylist
 
@@ -10,5 +15,6 @@
 {
   @Html.HiddenFor(model => model.StylistId)
   @await Html.PartialAsync("Forms/StylistForm")
+  <br />
   <button value="Save">Edit stylist</button>
 }

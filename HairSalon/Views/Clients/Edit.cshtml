@@ -1,6 +1,11 @@
 @{
   Layout = "_Base";
 }
+@section Scripts {
+  @{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+  }
+}
 @using System.Collections.Generic;
 
 @model HairSalon.Models.Client
@@ -11,5 +16,6 @@
 {
   @Html.HiddenFor(model => model.ClientId)
   @await Html.PartialAsync("Forms/ClientForm")
+  <br />
   <button value="Save">Edit client</button>
 }

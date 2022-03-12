@@ -1,6 +1,11 @@
 @{
   Layout = "_Base";
 }
+@section Scripts {
+  @{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+  }
+}
 @using System.Collections.Generic;
 
 @model HairSalon.Models.Client
@@ -10,5 +15,6 @@
 @using (Html.BeginForm())
 {
   @await Html.PartialAsync("Forms/ClientForm")
+  <br />
   <button>Add new client</button>
 }

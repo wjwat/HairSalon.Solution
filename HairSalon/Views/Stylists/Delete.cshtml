@@ -13,7 +13,7 @@
   @if (Model.Clients.Count != 0)
   {
     @await Html.PartialAsync("Tables/Clients", (List<HairSalon.Models.Client>)Model.Clients.ToList())
-    <h3>You will have to find Stylists for these clients after you delete <span class='delete-name'>@Model.Name</span></h3>
+    <h3>You will have to find Stylists for these clients after you delete <span class='delete-name'>@Model.Name / ID:@Model.StylistId</span></h3>
   }
   @await Html.PartialAsync("Buttons/Cancel")
   @await Html.PartialAsync("Buttons/Delete")
