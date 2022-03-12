@@ -1,3 +1,15 @@
 @{
   Layout = "_Base";
 }
+@using System.Collections.Generic;
+
+@model HairSalon.Models.Client
+
+<h4>Edit Client</h4>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.ClientId)
+  @await Html.PartialAsync("Forms/ClientForm")
+  <button value="Save">Edit client</button>
+}

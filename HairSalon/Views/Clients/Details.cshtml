@@ -1,3 +1,14 @@
 @{
   Layout = "_Base";
 }
+@using HairSalon.Models;
+@model HairSalon.Models.Client
+
+<fieldset>
+  <legend>@Model.Name</legend>
+
+  @await Html.PartialAsync("Tables/ClientDetails")
+
+  @await Html.PartialAsync("Buttons/ClientEditClient")
+  @await Html.PartialAsync("Buttons/ClientDeleteClient")
+</fieldset>

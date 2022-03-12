@@ -1,3 +1,18 @@
 @{
   Layout = "_Base";
 }
+
+@using HairSalon.Models;
+
+<h1>Clients</h1>
+
+@if (@Model.Count == 0)
+{
+  <h3>No Clients have been added yet!</h3>
+}
+else
+{
+  @await Html.PartialAsync("Tables/Clients")
+
+  @await Html.PartialAsync("Buttons/ClientAddClient")
+}
