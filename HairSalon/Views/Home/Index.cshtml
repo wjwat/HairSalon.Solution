@@ -11,6 +11,17 @@
 
 @await Html.PartialAsync("Buttons/StylistHome")
 @await Html.PartialAsync("Buttons/StylistAddStylist")
+@await Html.PartialAsync("Buttons/ClientHome")
+@await Html.PartialAsync("Buttons/ClientAddClient")
+
+@if (ViewBag.stylists.Count != 0)
+{
+  @await Html.PartialAsync("Tables/Stylists", (List<HairSalon.Models.Stylist>)ViewBag.stylists)
+}
+else
+{
+  <hr />
+}
 
 @if (Model.Count != 0)
 {
