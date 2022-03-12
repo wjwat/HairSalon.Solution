@@ -14,6 +14,12 @@
 @await Html.PartialAsync("Buttons/ClientHome")
 @await Html.PartialAsync("Buttons/ClientAddClient")
 
+@using (Html.BeginForm("Index", "Search", FormMethod.Get))
+{
+  <input type="text" id="id" name="id" placeholder="Search Stylists & Clients by Name"/>
+  <button>Search</button>
+}
+
 @if (ViewBag.stylists.Count != 0)
 {
   @await Html.PartialAsync("Tables/Stylists", (List<HairSalon.Models.Stylist>)ViewBag.stylists)
