@@ -1,0 +1,20 @@
+@{
+  var stylistName = (@ViewBag.StylistName == null) ? "Unknown" : @ViewBag.StylistName;
+}
+
+<table class='details'>
+  <tbody>
+    <tr>
+      <td>First Name</td>
+      <td>@Model.FirstName</td>
+    </tr>
+    <tr>
+      <td>Last Name</td>
+      <td>@Model.LastName</td>
+    </tr>
+    <tr>
+      <td>Stylist</td>
+      <td>@stylistName</td>
+    </tr>
+  </tbody>
+</table>

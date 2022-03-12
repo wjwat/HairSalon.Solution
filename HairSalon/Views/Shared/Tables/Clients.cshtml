@@ -1,10 +1,12 @@
 @using HairSalon.Models;
 @model List<HairSalon.Models.Client>;
+<hr />
 <table>
   <thead>
     <tr>
-      <th style='width: 10%'>Client ID</th>
-      <th>Clients With No Stylists</th>
+      <th style='width: 12%'>Client ID</th>
+      <th>Client Name</th>
+      <th style='width: 12%'>Stylist ID</th>
       <th style='width: 20%'></th>
     </tr>
   </thead>
@@ -14,6 +16,7 @@
   <tr>
     <td>@c.ClientId</td>
     <td>@c.Name</td>
+    <td>@Html.ActionLink(@c.StylistId.ToString(), "Details", "Stylists", new { id = c.StylistId })</td>
     <td>@Html.ActionLink("Details", "Details", "Clients", new {id = c.ClientId }) | 
         @Html.ActionLink("Edit", "Edit", "Clients", new { id = c.ClientId }) | 
         @Html.ActionLink("Delete", "Delete", "Clients", new { id = c.ClientId})</td>
@@ -21,3 +24,4 @@
 }
   </tbody>
 </table>
+<hr />

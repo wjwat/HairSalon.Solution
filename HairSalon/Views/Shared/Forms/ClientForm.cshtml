@@ -1,12 +1,17 @@
+@using System.Collections.Generic;
 @model HairSalon.Models.Client
 @Html.LabelFor(model => model.FirstName)
 @Html.TextBoxFor(model => model.FirstName)
 @Html.LabelFor(model => model.LastName)
 @Html.TextBoxFor(model => model.LastName)
 @Html.LabelFor(model => model.Stylist)
-@Html.DropDownList("StylistId", ViewBag.StylistId, null, ViewBag.Attr)
-@if (ViewBag.Selected != 0)
+@if (ViewBag.Selected != null)
 {
+  @Html.DropDownList("StylistId", ViewBag.StylistId, null, ViewBag.Attr)
   // Jesus Christ why can't I do something like this with an HTML helper?
   <input type="hidden" name="StylistId" value="@ViewBag.Selected.ToString()" />
+}
+else
+{
+  @Html.DropDownList("StylistId")
 }
