@@ -1,9 +1,12 @@
 @using System.Collections.Generic;
 @model HairSalon.Models.Client
+
 @Html.LabelFor(model => model.FirstName)
 @Html.TextBoxFor(model => model.FirstName)
+@Html.ValidationMessageFor(model => model.FirstName)
 @Html.LabelFor(model => model.LastName)
 @Html.TextBoxFor(model => model.LastName)
+@Html.ValidationMessageFor(model => model.LastName)
 @Html.LabelFor(model => model.Stylist)
 @if (ViewBag.Selected != null)
 {
