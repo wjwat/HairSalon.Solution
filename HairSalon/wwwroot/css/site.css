@@ -14,7 +14,7 @@ button {
 }
 
 fieldset {
-  padding-bottom: 1.5rem;
+  padding-bottom: 1rem;
   overflow: hidden;
 }
 
@@ -24,6 +24,7 @@ form {
 
 legend {
   font-size: 24px;
+  text-transform: uppercase;
 }
 
 table {
@@ -78,10 +79,17 @@ footer a {
 }
 
 .delete {
-  background-color: #ff4136;
-  border: 2px solid #111111;
+  background-color: #DA3D34;
+  border: 2px solid darkred;
   color: #FFDC00;
   font-weight: bold;
+  text-shadow: black 1px 1px;
+}
+
+.delete-name {
+  color: red;
+  text-decoration: underline;
+  text-transform: uppercase;
 }
 
 .disabled {
@@ -89,22 +97,14 @@ footer a {
   background-color: red;
 }
 
-.order-name {
-  font-style: italic;
-}
-
-.reduced-margin {
-  margin: 0.25rem;
-}
-
-.two-column-view {
-  columns: 2;
-}
-
-.vendor-name {
+.details tbody tr td:nth-child(1) {
   text-transform: uppercase;
-  text-decoration: underline;
   font-weight: bold;
+}
+
+.details tbody tr td:nth-child(2) {
+  padding-left: 1rem;
+  text-align: left;
 }
 
 /*** Errors ***/
