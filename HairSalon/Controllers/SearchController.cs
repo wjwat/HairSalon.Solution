@@ -31,10 +31,10 @@ namespace HairSalon.Controllers
 
         if (!string.IsNullOrEmpty(id))
         {
-          clients = clients.Where(c => c.FirstName!.Contains(id) ||
-                                       c.LastName!.Contains(id));
-          stylists = stylists.Where(s => s.FirstName!.Contains(id) ||
-                                         s.LastName!.Contains(id));
+          clients = clients.Where(c => c.FirstName.Contains(id) ||
+                                       c.LastName.Contains(id));
+          stylists = stylists.Where(s => s.FirstName.Contains(id) ||
+                                         s.LastName.Contains(id));
         }
 
         var searchView = new Search

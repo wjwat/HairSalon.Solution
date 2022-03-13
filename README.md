@@ -75,6 +75,7 @@ Pierre, our lovable bakery owner, has now recommended my services to his friends
   - I'd like to better understand what JQuery is doing client-side as well.
 - Allow user to set schedules, and track appointments
   - I looked at this but felt like it was way outside the scope of what I'm willing to spend time to do in any sort of reasonable way. Maybe I'm overestimating how hard it would be though.
+- Should deleting a client/stylist be a modal rather than a separate page?
 
 ## :lady_beetle: Known Bugs
 

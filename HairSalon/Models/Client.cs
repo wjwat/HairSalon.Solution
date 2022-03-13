@@ -12,8 +12,7 @@ namespace HairSalon.Models
 
     [Required, StringLength(60, MinimumLength = 1)]
     public string FirstName { get; set; }
-    [StringLength(60, MinimumLength = 1)]
-    [Required]
+    [Required, StringLength(60, MinimumLength = 1)]
     public string LastName { get; set; }
     public string Name
     {

@@ -11,8 +11,7 @@
 @if (ViewBag.Selected != null)
 {
   @Html.DropDownList("StylistId", ViewBag.StylistId, null, ViewBag.Attr)
-  // Jesus Christ why can't I do something like this with an HTML helper?
-  <input type="hidden" name="StylistId" value="@ViewBag.Selected.ToString()" />
+  @Html.Hidden("StylistId", (object)@ViewBag.Selected.ToString())
 }
 else
 {

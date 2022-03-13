@@ -9,7 +9,6 @@ body > header h1 {
 button {
   text-transform: uppercase;
   font-weight: bold;
-  /* float: right; */
   margin-top: 0.75rem;
 }
 
@@ -31,7 +30,6 @@ table {
   border: none;
   border: 2px dotted #ddd;
   border-left: 8px solid #001f3f;
-  /* width: auto; */
   margin: 0 auto;
 }
 
@@ -93,8 +91,12 @@ footer a {
 }
 
 .disabled {
-  border: 2px solid red;
-  background-color: red;
+  border: 2px solid var(--color-gray);
+  color: white;
+  font-weight: bold;
+  background-color: #acafbd;
+  cursor: not-allowed;
+  text-shadow: black 1px 1px;
 }
 
 .details tbody tr td:nth-child(1) {
